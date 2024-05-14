@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #My apps
+     'home',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +61,9 @@ ROOT_URLCONF = 'main.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,10 +89,10 @@ WSGI_APPLICATION = 'main.wsgi.application'
 #     }
 # }
 
-db_url = os.environ.get('DATABASE_URL')
-DATABASES = {
-    'default': dj_database_url.parse(db_url)
-}
+# db_url = os.environ.get('DATABASE_URL')
+# DATABASES = {
+#     'default': dj_database_url.parse(db_url)
+# }
 
 
 # Password validation
