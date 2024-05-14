@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Import Quicksand */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #ffffff;  /*white*/
+    --secondary-color: #2a2b2e; /* Dark Gray */
+    --text-color: #2a2b2e; /* Dark Gray */
+    --hover-color: #005580; /* dark blue*/
+    --header-font: 'Roboto', sans-serif;
+    --normal-font: 'Quicksand', sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--normal-font);
+    overflow: hidden;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: var(--header-font)
+}
+
+/* Customize the navbar colors */
+.navbar-custom {
+    background-color: transparent;
+}
+.navbar-custom .navbar-brand {
+    fill: var(--secondary-color);
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: var(--secondary-color);
+}
+.navbar-custom .navbar-nav .nav-link {
+    color: var(--secondary-color);
+    font-size: 1.5rem; 
+    display: block; 
+    padding: 10px 20px; 
+}
+
+.navbar-custom .navbar-nav .nav-link:hover {
+    background-color: var(--hover-color); 
+    color: var(--primary-color); 
+    border-radius: 10px;
+    transition: ease-in-out 0.5ms
+}
+
+/* Center the navbar menu in the dropdown */
+.navbar-custom .navbar-collapse {
+    text-align: center;
+}
+.navbar-nav {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    width:100vw;
+}
+.nav-link{
+    width:90vw;
+}
