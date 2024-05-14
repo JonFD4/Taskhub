@@ -1,44 +1,98 @@
-
-<footer class="bg-darkblue text-yellow py-4">
-    
- 
+<footer class="bg-darkblue py-4">
+  <div class="container">
     <div class="col-md-6">
-        <a class="navbar-brand"  href="{% url 'home' %}">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 75" width="120" height="75">
-                <!-- Background rectangle -->
-                <rect x="10" y="10" width="100" height="55" rx="15" ry="15" fill="#005580"/> <!-- Darker blue -->
-                
-                <!-- Text for "SubHub" -->
-                <text x="60" y="40" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#FFF" text-anchor="middle" alignment-baseline="middle">SubHub</text>
-            </svg>
-        </a>
-    
-    </div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <a name="contact us"> 
-            <h5>Contact Us</h5>
-            </a>
-            <ul class="list-unstyled">
-                <li>Email: info@subhub.com</li>
-                <li>Phone: +44 20 1234 5678</li>
-            </ul>
-        </div>
-        <div class="col-md-6">
-            <h5>Follow Us</h5>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="https://www.instagram.com/subhub" target="_blank" class="icon-instagram social-media-icon" aria-label="instagram-icon"><i class="bi bi-instagram"></i></a></li>
-                <li class="list-inline-item"><a href="https://www.messenger.com/subhub" target="_blank" class="icon-messenger social-media-icon" aria-label="messenger-icon"><i class="bi bi-chat-dots"></i></a></li>
-                <li class="list-inline-item"><a href="https://twitter.com/"             target="_blank" class="icon-twitter social-media-icon"  aria-label="X-icon">        <i class="bi bi-twitter"></i></a></li>
-            </ul>
-        </div>
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <p style="font-size: 14px; color: var(--primary-color); margin-top: 1.5rem;">&copy; 2024 SubHub. All rights reserved.</p>
-            </div>
-        </div>
+      <a class="navbar-brand" href="{% url 'home' %}" aria-label='Opens home page'>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 120 75"
+          width="120"
+          height="75"
+        >
+          <!-- Background rectangle -->
+          <rect
+            x="10"
+            y="10"
+            width="100"
+            height="55"
+            rx="15"
+            ry="15"
+            fill="#005580"
+          />
+          <!-- Darker blue -->
 
+          <!-- Text for "SubHub" -->
+          <text
+            x="60"
+            y="40"
+            font-family="Arial, sans-serif"
+            font-size="20"
+            font-weight="bold"
+            fill="#FFF"
+            text-anchor="middle"
+            alignment-baseline="middle"
+          >
+            SubHub
+          </text>
+        </svg>
+      </a>
     </div>
-</div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <a name="contact us">
+          <h5>Contact Us</h5>
+        </a>
+        <ul class="list-unstyled">
+          <li>Email: info@subhub.com</li>
+          <li>Phone: +44 20 1234 5678</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h5>Follow Us</h5>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <a
+              href="https://www.instagram.com/subhub"
+              target="_blank"
+              class="icon-instagram social-media-icon"
+              aria-label="instagram-icon"
+              ><i class="bi bi-instagram"></i
+            ></a>
+          </li>
+          <li class="list-inline-item">
+            <a
+              href="https://www.messenger.com/subhub"
+              target="_blank"
+              class="icon-messenger social-media-icon"
+              aria-label="messenger-icon"
+              ><i class="bi bi-chat-dots"></i
+            ></a>
+          </li>
+          <li class="list-inline-item">
+            <a
+              href="https://twitter.com/"
+              target="_blank"
+              class="icon-twitter social-media-icon"
+              aria-label="X-icon"
+            >
+              <i class="bi bi-twitter"></i
+            ></a>
+          </li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p
+            style="
+              font-size: 14px;
+              color: var(--primary-color);
+              margin-top: 1.5rem;
+            "
+          >
+            &copy; 2024 SubHub. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
