@@ -18,10 +18,16 @@
     font-family: var(--normal-font);
     overflow: hidden;
 }
+html,body{
+    height:100%;
+}
 body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+main {
+    flex: 1 0 auto;
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -66,4 +72,69 @@ h1,h2,h3,h4,h5,h6{
 }
 .nav-link{
     width:90vw;
+}
+
+
+/* Customizing footer */
+footer {
+    background-color: var(--secondary-color);
+width: 100%;
+background-color: var(--secondary-color);
+color: var(--primary-color);
+font-family: 'Quicksand', sans-serif;
+font-weight: 400;
+text-align: center;
+}
+footer h5 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+footer ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+footer ul li {
+    margin-bottom: 0.5rem;
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--hover-color);
+}
+
+.social-media-icon{
+    font-size: 2rem;
+}
+
+.icon-instagram {
+    background-image: linear-gradient(45deg, #405de6 0%, #5851db 11%, #bc2a8d 22%, #e95950 33%, #fccc63 44%, #fbad50 55%, #ff6600 66%, #ff9933 77%, #ffcc33 88%, #feda75 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+}
+
+
+
+.icon-messenger {
+    background-image: linear-gradient(45deg, #ffffff 0%, #ffb6c1 25%, #8a2be2 50%, #007fff 75%); /* Gradient resembling Messenger logo */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+}
+
+
+.icon-twitter {
+    background-image: linear-gradient(45deg, #1DA1F2, #AED9F1); /* Gradient resembling Twitter logo */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
 }
