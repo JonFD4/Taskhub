@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = 'DEVELOPMENT' in os.environ #look into the environment for development. If it exists, debug is true, otherwise false.
 
 ALLOWED_HOSTS = [
-    '8000-jonfd4-subhub-fmmtogukz0s.ws-eu111.gitpod.io',
+    '8000-jonfd4-taskhub-fmmtogukz0s.ws-eu111.gitpod.io',
 ]
 
 
