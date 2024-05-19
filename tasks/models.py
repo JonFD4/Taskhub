@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User as DjangoUser
-from resized import ResizedImageField
+from django_resized import ResizedImageField
+
 
 
 class Category(models.Model):
