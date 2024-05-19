@@ -30,8 +30,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = 'DEVELOPMENT' in os.environ #look into the environment for development. If it exists, debug is true, otherwise false.
 
 ALLOWED_HOSTS = [
-    '8000-jonfd4-taskhub-fmmtogukz0s.ws-eu111.gitpod.io',
-    'taskhubapp-f5dd3394b0e8.herokuapp.com/'
+    '8000-jonfd4-taskhub-ob879lb54lw.ws-eu114.gitpod.io',
+    'taskhubapp-f5dd3394b0e8.herokuapp.com',
 ]
 
 
