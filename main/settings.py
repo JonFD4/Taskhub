@@ -51,6 +51,10 @@ INSTALLED_APPS = [
      'allauth',
      'allauth.account',
      'allauth.socialaccount',
+
+     #Other
+     'crispy_forms',
+     'crispy_bootstrap5'
 ]
 SITE_ID = 1
 
@@ -67,13 +71,17 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'main.urls'
 
+CRISPY_ALLOWED_TEMPLATES_PACKS = 'boostrap5'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
-            os.path.join(BASE_DIR, 'templates','allauth'),
-
+            os.path.join(BASE_DIR, 'templates', 'allauth'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -82,15 +90,27 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #'django.template.context_processors.requests',
+            ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',  # Corrected from 'crispy_form.templatetags.crispy_forms_field'
             ],
         },
     },
 ]
 
+
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',  # Default backend for authentication using Django's built-in User model
     'allauth.account.auth_backends.AuthenticationBackend',  # Backend for authentication using Django Allauth
    
+]
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-jonfd4-taskhub-ob879lb54lw.ws-eu114.gitpod.io',
+    'https://taskhubapp-f5dd3394b0e8.herokuapp.com',
 ]
 
 
