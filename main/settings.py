@@ -29,6 +29,7 @@ DEBUG = 'DEVELOPMENT' in os.environ #look into the environment for development. 
 
 ALLOWED_HOSTS = [
     '8000-jonfd4-taskhub-fmmtogukz0s.ws-eu111.gitpod.io',
+    'taskhubapp-f5dd3394b0e8.herokuapp.com/'
 ]
 
 
