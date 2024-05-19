@@ -3,11 +3,13 @@ bleach==6.1.0
 certifi==2024.2.2
 charset-normalizer==3.3.2
 cloudinary==1.40.0
+crispy-bootstrap5==2024.2
 dj-database-url==2.1.0
 dj3-cloudinary-storage==0.0.6
-Django==3.2.25
-django-allauth==0.63.0
+Django==5.0.6
+django-allauth==0.63.1
 django-cloudinary-storage==0.3.0
+django-crispy-forms==2.1
 django-summernote==0.8.20.0
 gunicorn==22.0.0
 idna==3.7
