@@ -57,8 +57,28 @@ INSTALLED_APPS = [
      'crispy_forms',
      'crispy_bootstrap5',
      'django_summernote',
+     'cloudinary',
+     'cloudinary_storage'
 ]
 SITE_ID = 1
+
+# Summernote configuration settings
+SUMMERNOTE_CONFIG = {
+    # Using SummernoteWidget
+    'summernote': {
+        'width': '100%',
+        'height': '300',
+        'toolbar': [
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['fontsize', ['fontsize']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']],
+            ['misc', ['fullscreen', 'codeview']],
+        ],
+    },
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -160,6 +180,7 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
+USE_L10N = True
 
 USE_I18N = True
 
@@ -182,6 +203,12 @@ STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Cloudinary and media Settings
+
+DEFAULT_STORAGE = 'cloudinary'
+CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
