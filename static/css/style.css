@@ -16,7 +16,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: var(--normal-font);
-    overflow: hidden;
+  
 }
 html,body{
     height:100%;
@@ -74,7 +74,11 @@ h1,h2,h3,h4,h5,h6{
     width:90vw;
 }
 
-
+.active{
+    background-color: var(--hover-color); 
+    color: var(--primary-color); 
+    border-radius: 10px;
+}
 /* Customizing footer */
 footer {
     background-color: var(--secondary-color);
@@ -138,3 +142,96 @@ footer a:hover {
     color: transparent;
     font-weight: bold;
 }
+
+/*Customising SIgn In and registration page*/
+
+/*customising signin page*/
+.sign-container {
+    margin-top: 50px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+}
+
+.sign-h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+.welcome-back-text{
+    font-size: 1rem;
+    font-weight:bold;
+}
+.center-form-elements > p{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.btn-signup,
+.signup-form button {
+    background-color: var(--hover-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    font-family: var(--normal-font);
+    transition: background-color 0.3s ease;
+
+
+}
+
+.btn-signup:hover,  .signup-form button:hover {
+    background-color: #003c4e;
+    color:white;
+}
+.login {
+    width: 100%;
+    max-width: 400px;
+}
+.login-form input[type="text"],
+.login-form input[type="password"] {
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-family: var(--normal-font);
+    }
+
+    /* Customising Sign up page */
+
+    .signup-form{
+        max-width: 400px; 
+        margin: 0 auto; 
+        padding: 20px; 
+        
+    }
+    .form-element{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .signup-form input[type="text"],
+    .signup-form input[type="email"],
+    .signup-form input[type="password"] {
+        width: calc(100% - 22px);
+        max-width: 400px;;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-family: var(--normal-font);
+        box-sizing: border-box; 
+    
+    }
+
+    .signup-form button {
+        display: block; 
+        margin: 0 auto;
+    }
