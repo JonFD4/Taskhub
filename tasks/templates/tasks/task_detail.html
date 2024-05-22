@@ -6,7 +6,7 @@
     <h2>{{ task.title }}</h2>
     <p>Due Date: {{ task.due_date }}</p>
     {% if task.additional_info %}
-        <p>Additional Information: {{ task.additional_info|escape|linebreaks }}</p>
+        <p>Additional Information: {{ task.additional_info|safe|linebreaks }}</p>
     {% endif %}
     {% if task.goal_image %}
         <img src="{{ task.goal_image.url }}" alt="{{ task.goal_image_alt }}">
