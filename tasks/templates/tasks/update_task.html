@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Update Task{% endblock %}
+
+{% block content %}
+    <h2>Update Task</h2>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">Update Task</button>
+        <a href="{% url 'task_detail' pk=task.pk %}" class="btn btn-secondary">Cancel</a>
+    </form>
+{% endblock %}
