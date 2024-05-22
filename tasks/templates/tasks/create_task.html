@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Task - TaskHub{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">Create Task</h1>
+    <form method="post" enctype="multipart/form-data" class="p-2 form">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form|crispy }}
+        </div>
+        <button type="submit" class="btn btn-primary">Create Task</button>
+    </form>
+</div>
+{% endblock %}
