@@ -146,15 +146,7 @@ footer a:hover {
 /*Customising SIgn In and registration page*/
 
 /*customising signin page*/
-.sign-container {
-    margin-top: 50px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; 
-}
+
 
 .sign-h1 {
     font-size: 2.5rem;
@@ -170,6 +162,7 @@ footer a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width:100%;
 }
 
 
@@ -201,37 +194,4 @@ footer a:hover {
         border-radius: 5px;
         border: 1px solid #ccc;
         font-family: var(--normal-font);
-    }
-
-    /* Customising Sign up page */
-
-    .signup-form{
-        max-width: 400px; 
-        margin: 0 auto; 
-        padding: 20px; 
-        
-    }
-    .form-element{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .signup-form input[type="text"],
-    .signup-form input[type="email"],
-    .signup-form input[type="password"] {
-        width: calc(100% - 22px);
-        max-width: 400px;;
-        padding: 10px;
-        margin-bottom: 20px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        font-family: var(--normal-font);
-        box-sizing: border-box; 
-    
-    }
-
-    .signup-form button {
-        display: block; 
-        margin: 0 auto;
     }
