@@ -19,7 +19,15 @@ def create_task(request):
     return render(request, 'tasks/create_task.html', {'form': form})
 
 @login_required
+def read_task(request, pk):
+    # Retrieve details of a specific task. Displayed in task_details
+    task = get_object_or_404(Task, pk=pk)
+    if task.user != request.user:
+        return HttpResponseForbidden()
+    return render(request, 'tasks/task_detail.html', {'task': task})
+
+@login_required
 def task_list(request):
-    # Retrieve all tasks for the logged-in user
+    # Retrieve all tasks for the logged-in user. Dashboard
     tasks = Task.objects.filter(user=request.user)
     return render(request, 'tasks/tasks_list.html', {'tasks': tasks})
