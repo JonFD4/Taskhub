@@ -26,19 +26,15 @@ class TaskAdmin(admin.ModelAdmin):
         }),
     )
 
-   # This method specifies which fields should be read-only in the admin interface.
-# When editing an existing object, the 'user' field is made read-only,
-# ensuring it cannot be modified once set.
-# When creating a new object, all fields remain editable.
 def get_readonly_fields(self, request, obj=None):
+     # This method specifies which fields should be read-only in the admin interface.
     if obj: 
         return ['user']
     return []
 
-# This method overrides the default save behavior for the model in the admin interface.
-# It ensures that if the 'user' field is not set when saving the object,
-# it is automatically assigned the current user.
 def save_model(self, request, obj, form, change):
+
+# This method overrides the default save behavior for the model in the admin interface.
     if not obj.user:
         obj.user = request.user
     obj.save()
