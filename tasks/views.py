@@ -17,3 +17,9 @@ def create_task(request):
     else:
         form = TaskForm()
     return render(request, 'tasks/create_task.html', {'form': form})
+
+@login_required
+def task_list(request):
+    # Retrieve all tasks for the logged-in user
+    tasks = Task.objects.filter(user=request.user)
+    return render(request, 'tasks/tasks_list.html', {'tasks': tasks})
