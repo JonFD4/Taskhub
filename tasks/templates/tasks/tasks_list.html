@@ -3,14 +3,14 @@
 {% block title %}Dashboard - Task Hub{% endblock %}
 
 {% block content %}
-    <h2>Tasks</h2>
-    <div class="row">
+    <h2 class= "text-center">Tasks- Dashboard</h2>
+    <div class="row mx-auto">
         {% for task in tasks %}
             <div class="col-lg-4">
                 <a href="{% url 'task_detail' pk=task.pk %}" class="text-decoration-none">
-                    <div class="card task-card {% if task.completed %}bg-light{% endif %}">
+                    <div class="card task-card {% if task.completed %}bg-light{% endif %} m-3">
                         <div class="card-body">
-                            <h5 class="card-title">{{ task.title }}</h5>
+                            <h3 class="card-title">{{ task.title }}</h5>
                             <p class="card-text">Due Date: {{ task.due_date }}</p>
                             <p class="card-text">Status: {% if task.completed %}<span class="badge bg-success">Completed</span>{% else %}<span class="badge bg-danger">Incomplete</span>{% endif %}</p>
                         </div>
