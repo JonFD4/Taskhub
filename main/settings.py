@@ -102,6 +102,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
+            os.path.join(BASE_DIR, 'tasks/templates/category'),  # Path for category templates
+            os.path.join(BASE_DIR, 'tasks/templates/tasks'),  
             os.path.join(BASE_DIR, 'templates'),
             os.path.join(BASE_DIR, 'templates', 'allauth'),
         ],
