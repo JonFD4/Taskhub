@@ -30,8 +30,12 @@ main {
     flex: 1 0 auto;
 }
 
-h1,h2,h3,h4,h5,h6{
-    font-family: var(--header-font)
+h1,h2,h3,h4,h5,h6, label{
+    font-family: var(--header-font);
+    color: var(--hover-color)
+}
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
 }
 
 /* Customize the navbar colors */
@@ -195,3 +199,15 @@ footer a:hover {
         border: 1px solid #ccc;
         font-family: var(--normal-font);
     }
+
+    /*Style task dashboard*/
+    .task-card {
+        transition: border-color 0.3s;
+         
+    }
+    
+    .task-card:hover {
+        border-color: #005580; 
+    }
+    
+    
