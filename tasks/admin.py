@@ -23,7 +23,7 @@ class TaskAdmin(admin.ModelAdmin):
             'fields': ('title', 'due_date', 'due_time', 'additional_info', 'goal_image', 'goal_image_alt', 'category', 'new_category')
         }),
         ('Task Details', {
-            'fields': ('user', 'category', 'priority', 'completed'),
+            'fields': ('user', 'priority', 'completed'),
         }),
     )
 
