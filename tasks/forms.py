@@ -1,8 +1,18 @@
 from django import forms
-from .models import Task
+from .models import Task, Category
 from django_summernote.widgets import SummernoteWidget
 
+class CategoryForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = ['name', 'description']
+    
+    class Meta:
+        model = 
+        fields = ("",)
+)
 class TaskForm(forms.ModelForm):
+    new_category = forms.CharField(required=False, help_text="Enter a new category if not listed")
     class Meta:
         model = Task
         fields = ['title', 'due_date', 'due_time', 'category', 'priority', 'completed', 'additional_info', 'goal_image', 'goal_image_alt']
@@ -11,3 +21,11 @@ class TaskForm(forms.ModelForm):
             'due_date': forms.DateInput(attrs={'type': 'date'}),
             'due_time': forms.TimeInput(attrs={'type': 'time'}),
         }
+
+    def save(self, commit=True):
+        new_category_name = self.cleaned_data.get('new_category')
+        if new_category_name:
+            category, created = Category.objects.get_or_create(name=new_category_name)
+            self.instance.category = category
+        return super().save(commit=commit)
+
