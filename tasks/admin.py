@@ -10,6 +10,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
+    form = TaskForm
     list_display = ('title', 'due_date', 'due_time', 'user', 'category', 'priority', 'completed', 'goal_image')
     list_filter = ('due_date', 'user', 'category', 'priority', 'completed')
     search_fields = ('title', 'additional_info')
@@ -19,7 +20,7 @@ class TaskAdmin(admin.ModelAdmin):
     ordering = ('-due_date', 'priority')
     fieldsets = (
         (None, {
-            'fields': ('title', 'due_date', 'due_time', 'additional_info', 'goal_image', 'goal_image_alt')
+            'fields': ('title', 'due_date', 'due_time', 'additional_info', 'goal_image', 'goal_image_alt', 'category', 'new_category')
         }),
         ('Task Details', {
             'fields': ('user', 'category', 'priority', 'completed'),
@@ -38,8 +39,3 @@ def save_model(self, request, obj, form, change):
     if not obj.user:
         obj.user = request.user
     obj.save()
-
-
-
-
-
