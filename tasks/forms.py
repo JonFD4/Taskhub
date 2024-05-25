@@ -7,12 +7,9 @@ class CategoryForm(forms.ModelForm):
         model = Category
         fields = ['name', 'description']
     
-    class Meta:
-        model = 
-        fields = ("",)
-)
+   
 class TaskForm(forms.ModelForm):
-    new_category = forms.CharField(required=False, help_text="Enter a new category if not listed")
+    category = forms.ModelChoiceField(queryset=Category.objects.all(), empty_label='Select category')
     class Meta:
         model = Task
         fields = ['title', 'due_date', 'due_time', 'category', 'priority', 'completed', 'additional_info', 'goal_image', 'goal_image_alt']
