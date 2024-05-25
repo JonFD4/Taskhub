@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden
-from .models import Task
-from .forms import TaskForm
+from .models import Task, Category
+from .forms import TaskForm, CategoryForm
 
 @login_required
 def create_task(request):
@@ -58,3 +58,42 @@ def task_list(request):
     # Retrieve all tasks for the logged-in user. Dashboard
     tasks = Task.objects.filter(user=request.user)
     return render(request, 'tasks/tasks_list.html', {'tasks': tasks})
+
+
+# Category functionalities
+@login_required
+def category_list(request):
+    categories = Category.objects.all()
+    return render(request, 'category_list.html', {'categories': categories})
+
+@login_required
+def create_category(request):
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('category_list')
+    else:
+        form = CategoryForm()
+    return render(request, 'create_category.html', {'form': form})
+
+@login_required
+def update_category(request, category_id):
+    category = get_object_or_404(Category, id=category_id)
+    if request.method == 'POST':
+        form = CategoryForm(request.POST, instance=category)
+        if form.is_valid():
+            form.save()
+            return redirect('category_list')
+    else:
+        form = CategoryForm(instance=category)
+    return render(request, 'update_category.html', {'form': form, 'category': category})
+
+    #When i delete one category all of them deletes, when I add one all of them appear.
+@login_required
+def delete_category(request, category_id):
+    category = get_object_or_404(Category, id=category_id)
+    if request.method == 'POST':
+        category.delete()
+        return redirect('category_list')
+    return render(request, 'category_list.html', {'object_type': 'Category', 'object_name': category.name})
