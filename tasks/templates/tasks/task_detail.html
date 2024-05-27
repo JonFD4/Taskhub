@@ -3,36 +3,55 @@
 {% block title %}Task Details - Task Hub{% endblock %}
 
 {% block content %}
-    <h2>{{ task.title }}</h2>
-    <p>Due Date: {{ task.due_date }}</p>
-    {% if task.additional_info %}
-        <p>Additional Information: {{ task.additional_info|safe|linebreaks }}</p>
-    {% endif %}
-    {% if task.goal_image %}
-        <img src="{{ task.goal_image.url }}" alt="{{ task.goal_image_alt }}">
-    {% endif %}
-    <a href="{% url 'update_task' pk=task.pk %}" class="btn btn-warning">Update</a>
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
-
-    <!-- Delete Modal -->
-    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalLabel">Delete Task</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Are you sure you want to delete this task?
-                </div>
-                <div class="modal-footer">
-                    <form method="post" action="{% url 'delete_task' pk=task.pk %}">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    </form>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card mt-5">
+                <div class="card-body text-center">
+                    <h2 class="display-4">{{ task.title }}</h2>
+                    <p class="lead mb-3">Category: {{ task.category.name }}</p>
+                    <p class="lead mb-3">Priority: {{ task.get_priority_display }}</p>
+                    <p class="lead mb-3">Due Date: {{ task.due_date }}</p>
+                    {% if task.due_time %}
+                        <p class="lead mb-3">Due Time: {{ task.due_time }}</p>
+                    {% endif %}
+                    {% if task.additional_info %}
+                        <p class="lead mb-3">Additional Information: {{ task.additional_info|safe|linebreaks }}</p>
+                    {% endif %}
+                    {% if task.goal_image %}
+                        <img src="{{ task.goal_image.url }}" alt="{{ task.goal_image_alt }}" class="img-fluid mb-3">
+                    {% endif %}
+                    <div class="text-center">
+                        <div class="btn-group">
+                            <a href="{% url 'update_task' pk=task.pk %}" class="btn btn-success btn-md ">Update</a>
+                            <button type="button" class="btn btn-danger btn-md" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete Task</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this task?
+            </div>
+            <div class="modal-footer">
+                <form method="post" action="{% url 'delete_task' pk=task.pk %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-md">Delete</button>
+                    <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
