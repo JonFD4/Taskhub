@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Category List{% endblock %}
+{% block content %}
+<div class="container">
+    <h1 class="text-center mb-4">Category List</h1>
+    <div class="row justify-content-between mb-3">
+        <div class="col-md-4">
+            <a href="{% url 'create_category' %}" class="btn btn-primary">Create Category</a>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        {% for category in categories %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{ category.name }}</h5>
+                    <a href="{% url 'update_category' category.id %}" class="btn btn-success btn-sm">Update</a>
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ category.id }}">Delete</button>
+                </div>
+            </div>
+        </div>
+        <!-- Delete Modal -->
+        <div class="modal fade" id="deleteModal{{ category.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{ category.id }}" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel{{ category.id }}">Confirm Deletion</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete "{{ category.name }}" category?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <form id="deleteForm{{category.id}}" action ="{% url 'delete_category' category.id%}" method="post">
+                            {%csrf_token%}
+                            <input type="hidden" name="category_id" value="{{ category.id }}">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
