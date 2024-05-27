@@ -1,1 +1,41 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
+{% block title %}Home - TaskHub{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section text-center text-light d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="display-4">Welcome to TaskHub</h1>
+                <p class="lead">Your ultimate task management solution</p>
+                <a href="{% url 'account_signup' %}" class="btn btn-primary btn-lg">Get Started</a>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-4">
+                <h2>About TaskHub</h2>
+            </div>
+            <div class="col-12">
+                <p>In today's fast-paced world, keeping track of your tasks can be challenging. TaskHub is designed to help you stay organized, prioritize your work, and achieve your goals. Whether you're managing personal tasks or collaborating on projects, our app provides the tools you need to stay on top of your to-do list.</p>
+                <p>With TaskHub, you can:</p>
+                <ul>
+                    <li>Organize tasks by category</li>
+                    <li>Set deadlines and reminders</li>
+                    <li>Track your progress</li>
+                    <li>Collaborate with team members</li>
+                </ul>
+                <p>Start using TaskHub today and experience the benefits of effective task management!</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
