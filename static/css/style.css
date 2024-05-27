@@ -213,3 +213,28 @@ footer a:hover {
     }
     
     
+    /*Style home page*/
+
+.hero-section {
+    background: url('https://res.cloudinary.com/dy2jo0fcc/image/upload/v1716821935/taskmanager-hero_ebjv4u.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.about-section {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.about-section h2 {
+    font-family: var(--header-font);
+    color: var(--hover-color);
+    margin-bottom: 1rem;
+}
+
+.about-section ul {
+    list-style-type: disc;
+    padding-left: 1rem;
+}
