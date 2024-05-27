@@ -12,6 +12,7 @@ class Category(models.Model):
     """
     name = models.CharField(max_length=100, help_text='Enter the category name (e.g., Work, Personal, etc.)')
     description = models.TextField(blank=True, null=True, help_text='Enter a description for the category')
+    user = models.ForeignKey(DjangoUser, on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.name)
