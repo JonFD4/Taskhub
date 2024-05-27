@@ -1,8 +1,7 @@
-
 <header>
     <nav class="navbar navbar-custom">
-        <div class="container-fluid">
-            <a class="navbar-brand"  href="{% url 'home' %}">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <a class="navbar-brand" href="{% url 'home' %}">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 75" width="120" height="75">
                     <!-- Background rectangle -->
                     <rect x="10" y="10" width="100" height="55" rx="15" ry="15" fill="#005580"/> <!-- Darker blue -->
@@ -12,6 +11,14 @@
                 </svg>
             </a>
             
+            <!-- Person icon with user's name -->
+            {% if user.is_authenticated %}
+            <div class="d-flex align-items-center gap-2 me-3">
+                <i class="bi bi-person-fill" style="font-size: 1.5rem; color: #005580;"></i>
+                <span class="fw-bold" style="color: #005580;">{{ user.username }}</span>
+            </div>
+            {% endif %}
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -24,23 +31,23 @@
                     {% if user.is_authenticated %}
                    
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/task_list/' %}active{% endif %}" href="{% url 'task_list' %}">Dashboard</a>
+                        <a class="nav-link {% if request.path == '/tasks/' %}active{% endif %}" href="{% url 'task_list' %}">Dashboard</a>
                     </li> 
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/category_list/' %}active{% endif %}" href="{% url 'category_list' %}">Category List</a>
+                        <a class="nav-link {% if request.path == '/tasks/category/' %}active{% endif %}" href="{% url 'category_list' %}">Category List</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/create_task/' %}active{% endif %}" href="{% url 'create_task' %}">Add Task</a>
+                        <a class="nav-link {% if request.path == '/tasks/task/create/' %}active{% endif %}" href="{% url 'create_task' %}">Add Task</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == logout_url %}active{% endif %}" href="{% url 'account_logout' %}">Logout</a>
+                        <a class="nav-link {% if request.path == '/accounts/logout/' %}active{% endif %}" href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == login_url %}active{% endif %}" href="{% url 'account_login' %}">Login</a>
+                        <a class="nav-link {% if request.path == '/accounts/login/' %}active{% endif %}" href="{% url 'account_login' %}">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" href="{% url 'account_signup' %}">Register</a>
+                        <a class="nav-link {% if request.path == '/accounts/signup/' %}active{% endif %}" href="{% url 'account_signup' %}">Register</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == '/contact/' %}active{% endif %}" href="#contact">Contact Us</a>
@@ -50,5 +57,4 @@
             </div>
         </div>
     </nav>
-
 </header>
