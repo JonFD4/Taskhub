@@ -28,7 +28,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ #look into the environment for development. If it exists, debug is true, otherwise false.
+DEBUG = False #'DEVELOPMENT' in os.environ #look into the environment for development. If it exists, debug is true, otherwise false.
 
 ALLOWED_HOSTS = [
     '8000-jonfd4-taskhub-ob879lb54lw.ws-eu114.gitpod.io',
