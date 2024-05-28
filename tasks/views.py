@@ -4,6 +4,7 @@ from django.http import HttpResponseForbidden
 from .models import Task, Category
 from .forms import TaskForm, CategoryForm
 
+
 @login_required
 def create_task(request):
     # Handle creation of a new task
@@ -18,6 +19,7 @@ def create_task(request):
         form = TaskForm()
     return render(request, 'tasks/create_task.html', {'form': form})
 
+
 @login_required
 def read_task(request, pk):
     # Retrieve details of a specific task. Displayed in task_details
@@ -25,6 +27,7 @@ def read_task(request, pk):
     if task.user != request.user:
         return HttpResponseForbidden()
     return render(request, 'tasks/task_detail.html', {'task': task})
+
 
 @login_required
 def update_task(request, pk):
@@ -41,6 +44,7 @@ def update_task(request, pk):
         form = TaskForm(instance=task)
     return render(request, 'tasks/update_task.html', {'form': form, 'task': task})
 
+
 @login_required
 def delete_task(request, pk):
     # Handle deletion of an existing task
@@ -52,6 +56,8 @@ def delete_task(request, pk):
         task.delete()
         return redirect('task_list')
     return render(request, 'tasks/delete_task_confirmation.html', {'task': task})
+
+
 @login_required
 def task_list(request):
     # Retrieve all tasks for the logged-in user
@@ -75,11 +81,13 @@ def task_list(request):
 
     return render(request, 'tasks/tasks_list.html', {'tasks': tasks, 'categories': categories})
 
+
 # Category functionalities
 @login_required
 def category_list(request):
     categories = Category.objects.filter(user=request.user)
     return render(request, 'category/category_list.html', {'categories': categories})
+
 
 @login_required
 def create_category(request):
@@ -93,7 +101,9 @@ def create_category(request):
             return redirect('task_list')
     else:
         form = CategoryForm()
-    return render(request, 'create_category.html', {'form': form})
+    return render(request, 'category/create_category.html', {'form': form})
+
+
 @login_required
 def update_category(request, category_id):
     category = get_object_or_404(Category, id=category_id)
@@ -104,13 +114,13 @@ def update_category(request, category_id):
             return redirect('category_list')
     else:
         form = CategoryForm(instance=category)
-    return render(request, 'update_category.html', {'form': form, 'category': category})
+    return render(request, 'category/update_category.html', {'form': form, 'category': category})
 
-    #When i delete one category all of them deletes, when I add one all of them appear.
+
 @login_required
 def delete_category(request, category_id):
     category = get_object_or_404(Category, id=category_id)
     if request.method == 'POST':
         category.delete()
         return redirect('category_list')
-    return render(request, 'category_list.html', {'object_type': 'Category', 'object_name': category.name})
+    return render(request, 'category/delete_category_confirmation.html', {'category': category})
