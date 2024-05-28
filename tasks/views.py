@@ -79,7 +79,7 @@ def task_list(request):
 @login_required
 def category_list(request):
     categories = Category.objects.filter(user=request.user)
-    return render(request, 'category_list.html', {'categories': categories})
+    return render(request, 'category/category_list.html', {'categories': categories})
 
 @login_required
 def create_category(request):
