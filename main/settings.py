@@ -18,6 +18,7 @@ if  os.path.exists('env.py'):
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 
 # Quick-start development settings - unsuitable for production
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
     'django.contrib.sites',
 
     #My apps
@@ -58,7 +60,7 @@ INSTALLED_APPS = [
      'crispy_bootstrap5',
      'django_summernote',
      'cloudinary',
-     'cloudinary_storage'
+     
 ]
 SITE_ID = 1
 
@@ -101,12 +103,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR, 'tasks/templates/category'),  # Path for category templates
-            os.path.join(BASE_DIR, 'tasks/templates/tasks'),  
-            os.path.join(BASE_DIR, 'templates'),
-            os.path.join(BASE_DIR, 'templates', 'allauth'),
-        ],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -115,6 +112,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 #'django.template.context_processors.requests',
+                'django.template.context_processors.media',
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
@@ -203,7 +201,7 @@ LOGOUT_REDIRECT_URL ='/'
 
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Cloudinary and media Settings
