@@ -216,7 +216,7 @@ footer a:hover {
     /*Style home page*/
 
 .hero-section {
-    background: url('https://res.cloudinary.com/dy2jo0fcc/raw/upload/v1716895403/static/images/staticfiles.json') no-repeat center center/cover;
+    background: url('https://res.cloudinary.com/dy2jo0fcc/image/upload/v1716821935/taskmanager-hero_ebjv4u.jpg') no-repeat center center/cover;
     height: 100vh;
     display: flex;
     justify-content: center;
