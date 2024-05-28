@@ -1,1 +1,1 @@
-web: gunicorn taskhub.wsgi
+web: gunicorn main.wsgi
