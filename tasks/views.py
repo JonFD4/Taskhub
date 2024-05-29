@@ -4,19 +4,18 @@ from django.http import HttpResponseForbidden
 from .models import Task, Category
 from .forms import TaskForm, CategoryForm
 
-
 @login_required
 def create_task(request):
     # Handle creation of a new task
     if request.method == 'POST':
-        form = TaskForm(request.POST)
+        form = TaskForm(request.POST, user=request.user)  # Pass the current user to the form
         if form.is_valid():
             task = form.save(commit=False)
             task.user = request.user
             task.save()
             return redirect('task_list')
     else:
-        form = TaskForm()
+        form = TaskForm(user=request.user)  # Pass the current user to the form
     return render(request, 'tasks/create_task.html', {'form': form})
 
 

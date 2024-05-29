@@ -10,7 +10,13 @@ class CategoryForm(forms.ModelForm):
 
 
 class TaskForm(forms.ModelForm):
-    category = forms.ModelChoiceField(queryset=Category.objects.all(), empty_label='Select category')
+    def __init__(self, *args, **kwargs):
+            user = kwargs.pop('user', None)  # Extract user from kwargs
+            super(TaskForm, self).__init__(*args, **kwargs)
+            if user:
+                self.fields['category'].queryset = Category.objects.filter(user=user)
+
+    category = forms.ModelChoiceField(queryset=Category.objects.none(), empty_label='Select category')
 
     class Meta:
         model = Task
