@@ -35,12 +35,12 @@ def update_task(request, pk):
         return HttpResponseForbidden()
     
     if request.method == 'POST':
-        form = TaskForm(request.POST, instance=task)
+        form = TaskForm(request.POST,user=request.user, instance=task)
         if form.is_valid():
             form.save()
             return redirect('task_detail', pk=task.pk)
     else:
-        form = TaskForm(instance=task)
+        form = TaskForm(user=request.user,instance=task)
     return render(request, 'tasks/update_task.html', {'form': form, 'task': task})
 
 
@@ -55,7 +55,6 @@ def delete_task(request, pk):
         task.delete()
         return redirect('task_list')
     return render(request, 'tasks/delete_task_confirmation.html', {'task': task})
-
 
 @login_required
 def task_list(request):
