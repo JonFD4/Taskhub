@@ -12,6 +12,7 @@
                         {% csrf_token %}
                         {{ form|crispy }}
                         <button type="submit" class="btn btn-primary">Create Category</button>
+                        <a href="{% url 'category_list' %}" class="btn btn-secondary">Cancel</a>
                     </form>
                 </div>
             </div>
