@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 import dj_database_url
 
+from urllib.parse import urlparse
+
+
 from pathlib import Path
 if os.path.exists('env.py'):
     import env
@@ -31,12 +34,19 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG ='DEVELOPMENT' in os.environ # look into the environment for development. If it exists, debug is true, otherwise false.
 
 ALLOWED_HOSTS = [
-    '8000-jonfd4-taskhub-ob879lb54lw.ws-eu114.gitpod.io',
+    'localhost', '127.0.0.1',
     'taskhubapp-f5dd3394b0e8.herokuapp.com',
 ]
 
+if 'GITPOD_WORKSPACE_URL' in os.environ:
+    parsed_url = urlparse(os.environ['GITPOD_WORKSPACE_URL'])
+    host = parsed_url.hostname 
+    if host:
+        # Gitpod uses 8000 for default Django runserver
+        ALLOWED_HOSTS.append(f"8000-{host}")
+        ALLOWED_HOSTS.append(f"8000-{host}".replace("https://", ""))
+        ALLOWED_HOSTS.append(host)
 
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
