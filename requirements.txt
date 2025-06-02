@@ -18,7 +18,6 @@ django-summernote==0.8.20.0
 gunicorn==22.0.0
 idna==3.7
 packaging==24.0
-pillow==10.3.0
 psycopg2==2.9.9
 pydantic==2.7.1
 pydantic_core==2.18.2
