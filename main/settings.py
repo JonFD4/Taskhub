@@ -35,7 +35,7 @@ DEBUG ='DEVELOPMENT' in os.environ # look into the environment for development. 
 
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1',
-    'https://taskhubapp-25d006600cf9.herokuapp.com/',
+    'taskhubapp-25d006600cf9.herokuapp.com',
 ]
 
 if 'GITPOD_WORKSPACE_URL' in os.environ:
