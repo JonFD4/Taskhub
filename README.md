@@ -4,7 +4,7 @@ TaskHub is a versatile task management application designed to enhance productiv
 admin username: manager
 password: taskhubmanager
 
-The live link to the MVP website is on here- [TaksHub](https://taskhubapp-f5dd3394b0e8.herokuapp.com/)
+The live link to the MVP website is on here- [TaksHub](https://taskhubapp-25d006600cf9.herokuapp.com/)
 
 ---
 ## Content Page
